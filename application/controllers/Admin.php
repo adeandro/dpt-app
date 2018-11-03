@@ -15,8 +15,30 @@ class Admin extends CI_Controller {
 	public function index()
 	{
 		
-		echo "welcome to dpt dashboard";
+		$data = array();
 
+		$data['user'] = $this->ion_auth->user()->row();
+
+		$this->template->set('title','Dashboard');
+		$this->template->load('master_template','content','admin/dashboard',$data);
+
+	}
+
+	public function dpt_manager()
+	{
+		$data = array();
+		$data['user'] = $this->ion_auth->user()->row();
+
+		$this->template->set('title','DPT Manager');
+		$this->template->load('master_template','content','admin/dpt_manager',$data);
+	}
+
+	public function user_manager()
+	{
+		$data = array();
+
+		$this->template->set('title','Admin List');
+		$this->template->load('master_template','content','admin/user_manager',$data);
 	}
 
 	public function logout()

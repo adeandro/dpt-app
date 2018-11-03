@@ -28,18 +28,12 @@ class Auth extends CI_Controller {
 		}
 
 		$this->template->set('title','Login');
-		$this->template->load('master_template','content','auth/login',$data);
+		$this->template->load('login_template','content','auth/login',$data);
 	}
 
 	public function login()
 	{
 		
-	}
-
-	public function logout()
-	{
-		$this->ion_auth->logout();
-		redirect('auth');
 	}
 
 }
